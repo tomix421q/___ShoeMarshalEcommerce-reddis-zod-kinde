@@ -2,8 +2,10 @@ import prisma from '@/utils/db'
 import { redis } from '@/utils/redis'
 import { stripe } from '@/utils/stripe'
 import { headers } from 'next/headers'
+import { unstable_noStore as noStore } from 'next/cache'
 
 export const POST = async (req: Request) => {
+  noStore()
   const body = await req.text()
 
   const signature = (await headers()).get('Stripe-Signature') as string
