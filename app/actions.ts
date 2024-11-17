@@ -140,7 +140,7 @@ export const addItem = async (productId: string) => {
     return redirect('/')
   }
 
-  const cart: Cart | null = await redis.get(`cart-${user.id}`)
+  let cart: Cart | null = await redis.get(`cart-${user.id}`)
 
   const selectedProduct = await prisma.product.findUnique({
     where: {
@@ -209,7 +209,7 @@ export const deleteItem = async (formData: FormData) => {
 
   const productId = formData.get('productId')
 
-  const cart: Cart | null = await redis.get(`cart-${user.id}`)
+  let cart: Cart | null = await redis.get(`cart-${user.id}`)
 
   if (cart && cart.items) {
     const updateCart: Cart = {
@@ -228,7 +228,7 @@ export const checkOut = async () => {
     return redirect('/')
   }
 
-  const cart: Cart | null = await redis.get(`cart-${user.id}`)
+  let cart: Cart | null = await redis.get(`cart-${user.id}`)
 
   if (cart && cart.items) {
     const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = cart.items.map((item) => ({
