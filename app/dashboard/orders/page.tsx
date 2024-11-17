@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import prisma from '@/utils/db'
+import { unstable_noStore as noStore } from 'next/cache'
 
 const getData = async () => {
   const data = await prisma.order.findMany({
@@ -25,6 +26,7 @@ const getData = async () => {
 }
 
 const OrdersPage = async () => {
+  noStore()
   const data = await getData()
   return (
     <Card>

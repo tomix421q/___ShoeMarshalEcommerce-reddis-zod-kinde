@@ -14,8 +14,10 @@ import { CircleUser, MenuIcon } from 'lucide-react'
 import { redirect } from 'next/navigation'
 import { ReactNode } from 'react'
 import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components'
+import { unstable_noStore as noStore } from 'next/cache'
 
 const DashboardLayout = async ({ children }: { children: ReactNode }) => {
+  noStore()
   const { getUser } = getKindeServerSession()
   const user = await getUser()
 

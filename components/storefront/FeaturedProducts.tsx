@@ -1,6 +1,7 @@
 import prisma from '@/utils/db'
 import ProductCart, { LoadingProductCard } from './ProductCart'
 import { Suspense } from 'react'
+import { unstable_noStore as noStore } from 'next/cache'
 
 const getData = async () => {
   const data = await prisma.product.findMany({
@@ -25,6 +26,7 @@ const getData = async () => {
 }
 
 const FeaturedProducts = () => {
+  noStore()
   return (
     <>
       <h2 className='text-2xl font-extrabold tracking-tight'>Featured Items</h2>

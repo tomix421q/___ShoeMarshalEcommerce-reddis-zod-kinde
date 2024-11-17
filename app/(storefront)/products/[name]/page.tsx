@@ -1,6 +1,7 @@
 import ProductCart from '@/components/storefront/ProductCart'
 import prisma from '@/utils/db'
 import { notFound } from 'next/navigation'
+import { unstable_noStore as noStore } from 'next/cache'
 
 const getData = async (productCategory: string) => {
   switch (productCategory) {
@@ -74,6 +75,7 @@ const getData = async (productCategory: string) => {
 }
 
 const CategoriesPage = async ({ params }: { params: Promise<{ name: string }> }) => {
+  noStore()
   const { name } = await params
   const { data, title } = await getData(name)
 
