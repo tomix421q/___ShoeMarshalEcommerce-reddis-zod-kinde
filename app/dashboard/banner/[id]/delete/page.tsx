@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
 
-const DeleteBannerRoute = async ({ params }: { params: { id: string } }) => {
+const DeleteBannerRoute = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params
 
   return (

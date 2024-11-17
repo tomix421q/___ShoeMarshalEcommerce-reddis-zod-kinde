@@ -15,7 +15,7 @@ const getData = async (productId: string) => {
   return data
 }
 
-const EditRoute = async ({ params }: { params: { id: string } }) => {
+const EditRoute = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params
   const data = await getData(id)
 
