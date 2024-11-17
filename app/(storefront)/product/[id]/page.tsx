@@ -26,7 +26,7 @@ const getData = async (productId: string) => {
 }
 
 const ProductIdRoute = async ({ params }: { params: { id: string } }) => {
-  const { id } = await params
+  const { id } =  params
   const data = await getData(id)
 
   const addProductToShoppingCart = addItem.bind(null, id)
