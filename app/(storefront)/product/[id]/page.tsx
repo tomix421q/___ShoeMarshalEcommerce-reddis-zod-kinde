@@ -4,6 +4,7 @@ import ImageSlider from '@/components/storefront/ImageSlider'
 import { ShoppingBagButton } from '@/components/SubmitButtons'
 import prisma from '@/utils/db'
 import { StarIcon } from 'lucide-react'
+import { Params } from 'next/dist/server/request/params'
 import { notFound } from 'next/navigation'
 
 const getData = async (productId: string) => {
@@ -25,8 +26,8 @@ const getData = async (productId: string) => {
   return data
 }
 
-const ProductIdRoute = async ({ params }: { params: { id: string } }) => {
-  const { id } =  params
+const ProductIdRoute = async ({ params }: { params: Params }) => {
+  const id = (await params.id) as string
   const data = await getData(id)
 
   const addProductToShoppingCart = addItem.bind(null, id)
