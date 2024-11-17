@@ -1,6 +1,5 @@
 import { DollarSign, PartyPopper, ShoppingBag, User2 } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
-import { Avatar, AvatarFallback } from '@radix-ui/react-avatar'
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 import prisma from '@/utils/db'
 
 const getData = async () => {

@@ -7,9 +7,6 @@ import { Button } from '../ui/button'
 import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/components'
 import { redis } from '@/utils/redis'
 import { Cart } from '@/utils/interfaces'
-import { useEffect, useState } from 'react'
-import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
 
 const Navbar = async () => {
   const { getUser } = getKindeServerSession()

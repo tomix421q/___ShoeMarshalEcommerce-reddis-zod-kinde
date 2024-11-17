@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import prisma from '@/utils/db'
-import { MoreHorizontal, PlusCircle, User2 } from 'lucide-react'
+import { MoreHorizontal, PlusCircle } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 

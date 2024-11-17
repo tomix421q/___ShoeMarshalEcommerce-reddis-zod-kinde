@@ -13,7 +13,7 @@ export const POST = async (req: Request) => {
   try {
     event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_SECRET_WEBHOOK as string)
   } catch (error: unknown) {
-    return new Response('Webhook Error', { status: 400 })
+    return new Response(`'Webhook Error stripe : ${error}'`, { status: 400 })
   }
 
   switch (event.type) {
