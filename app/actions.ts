@@ -41,7 +41,7 @@ export async function createProduct(prevState: unknown, formData: FormData) {
   redirect('/dashboard/products')
 }
 
-export const editProduct = async (prevState: any, formData: FormData) => {
+export const editProduct = async (prevState: unknown, formData: FormData) => {
   const { getUser } = getKindeServerSession()
   const user = await getUser()
 
@@ -92,7 +92,7 @@ export const deleteProduct = async (formData: FormData) => {
   redirect('/dashboard/products')
 }
 
-export const createBanner = async (prevState: any, formData: FormData) => {
+export const createBanner = async (prevState: unknown, formData: FormData) => {
   const { getUser } = getKindeServerSession()
   const user = await getUser()
 
@@ -209,7 +209,7 @@ export const deleteItem = async (formData: FormData) => {
 
   const productId = formData.get('productId')
 
-  let cart: Cart | null = await redis.get(`cart-${user.id}`)
+  const cart: Cart | null = await redis.get(`cart-${user.id}`)
 
   if (cart && cart.items) {
     const updateCart: Cart = {
